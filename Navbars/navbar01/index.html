@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Navbar01</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    
+    <header>
+
+        <nav class="navbar">
+
+            <div class="navbar-logo">
+
+                <h1 class="logo">Logo</h1>
+
+                <div class="navbar-toggle">
+
+                    <button class="toggle">
+
+                        <span class="linha"></span>
+                        <span class="linha"></span>
+                        <span class="linha"></span>
+
+                    </button>
+
+                </div> <!-- navbar-toggle -->
+
+            </div> <!-- navbar-logo -->
+
+            <ul class="navbar-list">
+
+                <li>
+                    <a href="#" class="navbar-list_link">Lar</a>
+                </li>
+
+                <li>
+                    <a href="#" class="navbar-list_link">Sobre</a>
+                </li>
+
+                <li>
+                    <a href="#" class="navbar-list_link">Serviços</a>
+                </li>
+
+                <li>
+                    <a href="#" class="navbar-list_link">Contato</a>
+                </li>
+
+            </ul>
+
+            <ul class="navbar-icons">
+
+                <li>
+                    <a href="#" class="navbar-icons_link">Tiw</a>
+                </li>
+
+                <li>
+                    <a href="#" class="navbar-icons_link">Tiw</a>
+                </li>
+
+                <li>
+                    <a href="#" class="navbar-icons_link">Tiw</a>
+                </li>
+
+            </ul>
+
+        </nav> <!-- navbar -->
+
+    </header>
+
+    <main>
+        <h1>Titulo</h1>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cum ullam architecto quia sint adipisci enim sunt quisquam nisi amet sapiente. Nulla architecto quas, amet eum excepturi culpa a fugit accusantium?</p>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cum ullam architecto quia sint adipisci enim sunt quisquam nisi amet sapiente. Nulla architecto quas, amet eum excepturi culpa a fugit accusantium?</p>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cum ullam architecto quia sint adipisci enim sunt quisquam nisi amet sapiente. Nulla architecto quas, amet eum excepturi culpa a fugit accusantium?</p>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cum ullam architecto quia sint adipisci enim sunt quisquam nisi amet sapiente. Nulla architecto quas, amet eum excepturi culpa a fugit accusantium?</p>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cum ullam architecto quia sint adipisci enim sunt quisquam nisi amet sapiente. Nulla architecto quas, amet eum excepturi culpa a fugit accusantium?</p>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cum ullam architecto quia sint adipisci enim sunt quisquam nisi amet sapiente. Nulla architecto quas, amet eum excepturi culpa a fugit accusantium?</p>
+    </main>
+
+    <script>
+
+        let toggle = document.querySelector('.toggle')
+        let navbarList = document.querySelector('.navbar-list')
+        
+        toggle.addEventListener('click', Clicou)
+
+        navbarList.addEventListener('click', Clicou)
+
+        function Clicou() {
+
+            toggle.classList.toggle('ativar')
+            
+            navbarList.classList.toggle('navbar-list--show-links')
+        }
+
+    </script>
+
+</body>
+</html>

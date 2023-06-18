@@ -1,0 +1,152 @@
+@charset "UTF-8";
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+html {
+    font-size:  62.5%;
+}
+
+.navbar {
+    width: 100%;
+    background-color: white;
+    backdrop-filter: blur(10px);
+    box-shadow: 0px 0px 10px black;
+    position: fixed;
+}
+
+.navbar-logo {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.6rem;
+}
+
+.logo {
+    font-size: 3rem;
+    cursor: pointer;
+}
+
+.toggle {
+    display: block;
+    width: 3.4rem;
+    height: 3.4rem;
+    background: none;
+    border: 2px solid black;
+    cursor: pointer;
+}
+
+.linha {
+    display: block;
+    width: 2rem;
+    height: 0.2rem;
+    margin: 0.5rem auto;
+    background-color: black;
+    transition: 0.5s;
+}
+
+.toggle.ativar {
+    border: 2px solid red;
+}
+
+.toggle.ativar .linha:nth-child(1) {
+    transform: translateY(0.8rem) rotate(45deg);
+    background-color: red;
+}
+
+.toggle.ativar .linha:nth-child(2) {
+    width: 0;
+}
+
+.toggle.ativar .linha:nth-child(3) {
+    transform: translateY(-0.6rem) rotate(-45deg);
+    background-color: red;
+}
+
+
+.navbar-list {
+    height: 0;
+    list-style: none;
+    overflow: hidden;
+    background-color: rgba(0, 0, 0, 0.144);
+    backdrop-filter: blur(10px);
+    transition: 0.5s;
+}
+
+.navbar-list_link {
+    display: block;
+    color: black;
+    font-size: 1.6rem;
+    font-weight: 900;
+    padding: 1.6rem;
+    text-decoration: none;
+    text-align: center;
+    transition: 0.5s all;
+}
+
+.navbar-list_link:hover {
+    color: white;
+    background-color: brown;
+}
+
+.navbar-list--show-links {
+    height: 100vh;
+}
+
+.navbar-icons {
+    display: none;
+}
+
+@media screen and (min-width: 960px) {
+
+    .navbar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0 1.6rem;
+    }
+
+    .navbar-logo {
+        padding-left: 0;
+    }
+
+    .navbar-toggle {
+        display: none;
+    }
+
+    .navbar-list {
+        height: auto;
+        display: flex;
+        background: none;
+    }
+
+    .navbar-list_link:hover {
+        background: none;
+        color: brown;
+    }
+
+    .navbar-icons {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        list-style: none;
+        gap: 2rem;
+    }
+
+    .navbar-icons_link {
+        color: black;
+        font-size: 1.6rem;
+        text-decoration: none;
+    }
+}
+
+main {
+    position: absolute;
+    top: 70px;
+    min-height: calc(100vh - 7rem);
+    z-index: -1;
+}
