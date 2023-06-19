@@ -8,89 +8,64 @@
 }
 
 html {
-    font-size:  62.5%;
+    font-size: 62.5%;
 }
 
 .navbar {
     width: 100%;
     background-color: white;
-    backdrop-filter: blur(10px);
     box-shadow: 0px 0px 10px black;
     position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1;
 }
 
-.navbar-logo {
+.navbar-header {
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 1.6rem;
 }
 
-.logo {
-    font-size: 3rem;
+.navbar-header_logo {
+    color: green;
+    font-size: 3.4rem;
     cursor: pointer;
 }
 
-.toggle {
-    display: block;
+.navbar-header_toggle {
     width: 3.4rem;
     height: 3.4rem;
+    color: green;
     background: none;
-    border: 2px solid black;
+    border: 2px solid green;
+    font-size: 2.4rem;
     cursor: pointer;
 }
-
-.linha {
-    display: block;
-    width: 2rem;
-    height: 0.2rem;
-    margin: 0.5rem auto;
-    background-color: black;
-    transition: 0.5s;
-}
-
-.toggle.ativar {
-    border: 2px solid red;
-}
-
-.toggle.ativar .linha:nth-child(1) {
-    transform: translateY(0.8rem) rotate(45deg);
-    background-color: red;
-}
-
-.toggle.ativar .linha:nth-child(2) {
-    width: 0;
-}
-
-.toggle.ativar .linha:nth-child(3) {
-    transform: translateY(-0.6rem) rotate(-45deg);
-    background-color: red;
-}
-
 
 .navbar-list {
     height: 0;
+    background-color: lightgrey;
     list-style: none;
     overflow: hidden;
-    background-color: rgba(0, 0, 0, 0.144);
-    backdrop-filter: blur(10px);
-    transition: 0.5s;
+    transition: ease-in-out 0.4s all;
 }
 
 .navbar-list_link {
-    display: block;
     color: black;
-    font-size: 1.6rem;
-    font-weight: 900;
+    display: block;
     padding: 1.6rem;
+    font-size: 1.6rem;
+    font-weight: 600;
     text-decoration: none;
     text-align: center;
-    transition: 0.5s all;
+    transition: ease 0.5s all;
 }
 
 .navbar-list_link:hover {
     color: white;
-    background-color: brown;
+    background-color: green;
 }
 
 .navbar-list--show-links {
@@ -102,54 +77,62 @@ html {
 }
 
 @media screen and (min-width: 960px) {
-
     .navbar {
         display: flex;
         justify-content: space-between;
         align-items: center;
-        padding: 0 1.6rem;
+        padding: 1.6rem;
     }
 
-    .navbar-logo {
-        padding-left: 0;
+    .navbar-header {
+        padding: 0;
     }
 
-    .navbar-toggle {
+    .navbar-header_toggle {
         display: none;
     }
 
     .navbar-list {
         height: auto;
         display: flex;
+        align-items: center;
+        gap: 3.2rem;
+        padding: 0;
         background: none;
     }
 
+    .navbar-list_link {
+        transition: ease-in-out 0.2s all;
+    }
+
     .navbar-list_link:hover {
+        color: green;
         background: none;
-        color: brown;
+        transform: scale(1.2);
     }
 
     .navbar-icons {
         display: flex;
-        align-items: center;
-        justify-content: center;
         list-style: none;
+        align-items: center;
         gap: 2rem;
     }
 
     .navbar-icons_link {
-        display: block;
+        display: inline-block;
         color: black;
-        font-size: 2rem;
+        font-size: 1.6rem;
+        padding: 1rem;
+        text-align: center;
         text-decoration: none;
+        background-color: white;
         border-radius: 50%;
-        padding: 0.5rem;
-        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.404);
-        transition: 0.2s;
+        box-shadow: 0px 0px 10px black;
+        transition: ease-in-out 0.2s all;
     }
 
     .navbar-icons_link:hover {
-        color: brown;
-        transform: scale(1.1);
+        color: green;
+        transform: scale(1.2);
     }
 }
