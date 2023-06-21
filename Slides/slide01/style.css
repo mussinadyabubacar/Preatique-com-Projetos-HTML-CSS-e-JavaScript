@@ -1,0 +1,86 @@
+@charset "UTF-8";
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+input {
+    display: none;
+}
+
+/* ESTILO DA DIV CONTEINER */
+
+.conteiner {
+    width: 600px;
+    height: 400px;
+    border: 2px solid red;
+    box-shadow: 0px 0px 10px red;
+    overflow: hidden;
+}
+
+/* ESTILO DA DIV SLIDE BOX */
+
+.slide-box {
+    width: 400%;
+    height: auto;
+    display: flex;
+}
+
+/* ESTILO DA DIV SLIDE IMG a div que contem as imagens */
+
+.slide-img {
+    position: relative;
+    width: 25%;
+    height: auto;
+    transition: all 0.5s linear;
+}
+
+#radio1:checked ~ .slide-primeiro {
+    margin-left: 0;
+}
+
+#radio2:checked ~ .slide-primeiro {
+    margin-left: -25%;
+}
+
+#radio3:checked ~ .slide-primeiro {
+    margin-left: -50%;
+}
+
+/* ESTILO DAS DIV DE NAVEGAÇÃO AUTOMATICA, MANUAL E OS SEUS BOTOES */
+
+.nav-manual, .nav-auto {
+    position: absolute;
+    width: 600px;
+    height: auto;
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    margin-top: 350px;
+}
+
+/* BOTOES */
+
+.bt-manual, .nav-auto div {
+    border: 1px solid red;
+    padding: 10px;
+    border-radius: 50%;
+}
+
+.bt-manual:hover {
+    background-color: red;
+}
+
+#radio1:checked ~ .nav-auto .bt-auto1, #radio2:checked ~ .nav-auto .bt-auto2, #radio3:checked ~ .nav-auto .bt-auto3 {
+    background-color: red;
+}
