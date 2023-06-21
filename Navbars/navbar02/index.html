@@ -6,6 +6,7 @@
     <title>Navbar02</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
 </head>
 <body>
     
@@ -19,7 +20,7 @@
 
                 <button class="navbar-header_toggle">
 
-                    <i class="fas fa-bars"></i>
+                    <i class="fas fa-bars" id="icon"></i>
 
                 </button> <!-- navbar-toggle -->
 
@@ -64,21 +65,6 @@
         </nav> <!-- navbar -->
 
     </header>
-
-    <script>
-
-        let toggle = document.querySelector('.navbar-header_toggle')
-        let navbarList = document.querySelector('.navbar-list')
-
-        toggle.addEventListener('click', Clicou)
-        navbarList.addEventListener('click', Clicou)
-
-        function Clicou() {
-            toggle.classList.toggle('ativar')
-            navbarList.classList.toggle('navbar-list--show-links')
-        }
-
-    </script>
 
 </body>
 </html>

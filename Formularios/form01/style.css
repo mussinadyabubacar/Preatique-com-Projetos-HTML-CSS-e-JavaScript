@@ -1,0 +1,39 @@
+@charset "UTF-8";
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: brown;
+}
+
+.form {
+    position: relative;
+}
+
+input {
+    width: 350px;
+    height: 58px;
+    border: none;
+    outline: none;
+    border-radius: 10px;
+    padding: 0 50px 0 30px;
+    font-size: 20px;
+}
+
+#icon {
+    font-size: 30px;
+    position: absolute;
+    right: 5%;
+    margin-top: 15px;
+    cursor: pointer;
+    color: gray;
+}
