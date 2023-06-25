@@ -38,8 +38,8 @@
 
 .modal {
     color: white;
-    width: 50%;
-    min-width: 450px;
+    max-width: 50%;
+    width: 450px;
     padding: 50px;
     border-radius: 10px;
     background-color: rgba(0, 0, 0, 0.5);
