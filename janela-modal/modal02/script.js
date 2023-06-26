@@ -7,14 +7,18 @@ btn.addEventListener('click', function () {
 
     modal.classList.add('open')
 
-    modal.addEventListener('click', () => {
+    modal.addEventListener('click', (e) => {
 
-        modal.classList.remove('open')
+        if (e.target.id == 'janela-modal') {
+
+            modal.classList.remove('open')
+            
+        }
 
     })
 
     close.addEventListener('click', () => {
-        
+
         modal.classList.remove('open')
     })
 })
