@@ -1,8 +1,8 @@
 const btn = document.querySelector(".btn")
+const modal = document.querySelector("#janela-modal")
 
 btn.addEventListener('click', function () {
 
-    const modal = document.querySelector("#janela-modal")
     modal.classList.add("open")
 
     modal.addEventListener('click', (event) => {
