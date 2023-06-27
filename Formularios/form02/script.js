@@ -4,40 +4,6 @@ let inputEmail = document.getElementById('iemail')
 let inputpwd = document.getElementById('ipwd')
 let selectJob = document.querySelector('#ijob')
 
-// FUNÇÃO VERIFICAR SE O E-MAIL É VALIDO COM UMA REGEX.
-function validEmail(email) {
-
-    // criar uma regex para validar o e-mail
-    const emailRegex = new RegExp (
-
-        // user12@gmail.com.br => este é o nosso padrão
-        /^[a-zA-z0-9._-]+@[a-z]+\.[a-z]{2,}$/
-    )
-
-    if (emailRegex.test(email)) {
-
-        return true
-
-    } else {
-
-        return false
-    }
-}
-
-
-// VERIFICAR SE A SENHA É VALIDA.
-function validPassword(pwd, minDigit) {
-
-    if (pwd.length >= minDigit) {
-
-        return true
-
-    } else {
-
-        return false
-    }
-} 
-
 // EVENTO DE SUBMISÃO DO FORMULÁRIO
 form.addEventListener('submit', (event) => {
 
@@ -76,3 +42,37 @@ form.addEventListener('submit', (event) => {
     // SE TODAS AS VALIDAÕES FORMEM VERIFICADAS ENTÃO FAÇA SUBMISÃO.
     form.submit();
 })
+
+// FUNÇÃO VERIFICAR SE O E-MAIL É VALIDO COM UMA REGEX.
+function validEmail(email) {
+
+    // criar uma regex para validar o e-mail
+    const emailRegex = new RegExp (
+
+        // user12@gmail.com.br => este é o nosso padrão
+        /^[a-zA-z0-9._-]+@[a-z]+\.[a-z]{2,}$/
+    )
+
+    if (emailRegex.test(email)) {
+
+        return true
+
+    } else {
+
+        return false
+    }
+}
+
+
+// VERIFICAR SE A SENHA É VALIDA.
+function validPassword(pwd, minDigit) {
+
+    if (pwd.length >= minDigit) {
+
+        return true
+
+    } else {
+
+        return false
+    }
+} 
