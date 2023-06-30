@@ -1,213 +1,146 @@
-const previousOperationText = document.querySelector('#previous-operation');
-const currentOperationText = document.querySelector('#current-operation');
+const resultScrean = document.querySelector('.result');
 const buttons = document.querySelectorAll('.button-box button');
+let currentNumber = '';
+let firstOperand = null;
+let operator = null;
+let restart = false;
+
+function updateResult(originClear = false) {
+
+    // resultScrean.textContent = originClear ? 0 : currentNumber.replace('.', ',')
+
+    if (resultScrean.textContent = originClear) {
+
+        resultScrean.textContent = 0;
+
+    } else {
+
+        resultScrean.textContent = currentNumber;
+
+    }
+
+}
 
 
-class calculator {
+function addDigit(digit) {
 
-    constructor(previousOperationText, currentOperationText) {
+    if (digit === '.' && currentNumber.includes('.')) {
 
-        this.previousOperationText = previousOperationText;
-        this.currentOperationText = currentOperationText;
-        this.currentOperation = '';
+        return;
 
-    };
+    }
 
-    // ADICIONAR DIGITOS NA TELA DA CALCULADORA
-    addDigit(digit) {
+    if (restart) {
 
-        // VERIFICAR SE A OPERAÇÃO EM ANDAMENTO JÁ TEM UM PONTO (.)
-        if (digit === '.' && this.currentOperationText.textContent.includes('.')) {
+        currentNumber = digit;
 
+        restart = false;
+
+    } else {
+
+        currentNumber += digit;
+
+    }
+
+    updateResult()
+
+}
+
+
+function setOperator(newOperator) {
+
+    if (currentNumber) {
+
+        calculateAll()
+
+        firstOperand = +currentNumber;
+        currentNumber = "";
+
+    }
+
+    operator = newOperator;
+
+}
+
+
+function calculateAll() {
+
+    if (operator === null || firstOperand === null) {
+
+        return;
+
+    }
+
+    let secondOperand = +currentNumber;
+    let resultValue;
+
+    switch (operator) {
+
+        case '+' :
+
+            resultValue = firstOperand + secondOperand;
+
+        break;
+
+        case '-' :
+
+            resultValue = firstOperand - secondOperand;
+
+        break;
+
+        case 'x' :
+
+            resultValue = firstOperand * secondOperand;
+
+        break;
+
+        case '÷' :
+
+            resultValue = firstOperand / secondOperand;
+
+        break;
+
+        default :
             return;
+    }
 
-        };
+ 
+    if (resultValue.toString().split('.')[1]?.length > 5) {
 
-        this.currentOperation = digit;
+        currentNumber = +resultValue.toFixed(5).toString();
 
-        this.updateScrean();
+    } else {
 
-    };
+        currentNumber = resultValue.toString();
 
-    // PROCESSAR TODAS AS OPERAÇÕES DA CALCULADORA
-    processOperation(operation) {
+    }
 
-        // VERIFICA SE O VALOR ATUAL ESTA VAZIA
-        if (this.currentOperationText.innerHTML === '' && operation !== "C") {
+    operator = null;
+    firstOperand = null;
+    restart = true;
+    updateResult()
+}
 
-            // MUNADA A OPERACAO
-            if (this.previousOperationText.innerHTML !== '') {
 
-                this.changeOpration(operation);
-            }
+buttons.forEach((button) => {
 
-            return;
+    button.addEventListener('click', () => {
+
+        const buttonValue = button.textContent;
+
+        if (+buttonValue >= 0 || buttonValue === '.') {
+
+
+            addDigit(buttonValue)
+
+        } else if (['+', '-', 'x', '÷'].includes(buttonValue)) {
+
+            setOperator();
+
+        } else if (buttonValue === '=') {
+
+            calculateAll()
+
         }
-
-        // PEGAR O VALOR ATUAL E O ANTERIOR
-        let operationValue;
-        const previous = +this.previousOperationText.innerHTML.split(' ')[0];
-        const current = +this.currentOperationText.innerHTML;
-
-        switch (operation) {
-
-            case '+' :
-
-                operationValue = previous + current;
-
-                this.updateScrean(operationValue, operation, current, previous)
-
-            break;
-
-            case '-' :
-
-                operationValue = previous - current;
-
-                this.updateScrean(operationValue, operation, current, previous)
-
-            break;
-
-            case '*' :
-
-                operationValue = previous * current;
-
-                this.updateScrean(operationValue, operation, current, previous)
-
-            break;
-
-            case '/' :
-
-                operationValue = previous / current;
-
-                this.updateScrean(operationValue, operation, current, previous)
-
-            break;
-
-            case 'DEL' :
-
-                this.processDelOperation()
-
-            break;
-
-            case 'CE' :
-
-                this.processClearCurrentOperation()
-
-            break;
-
-            case 'C' :
-
-                this.processClearAllOperation()
-
-            break;
-
-            case '=' :
-
-                this.processEqualoperation()
-
-            break;
-
-            default :
-                return;
-        }
-
-    }
-
-    // ATUALIZAR O VALOR NA TELLA DA CALCULADORA
-    updateScrean(
-
-        operationValue = null,
-        operation = null,
-        current = null,
-        previous = null
-
-    ) {
-
-        if (operationValue === null) {
-
-            this.currentOperationText.innerHTML += this.currentOperation;
-
-        } else {
-
-            // VERIFICAR SE O VALOR É 0, SE FOR ADICIONAR O VALOR ATUAL
-            if (operationValue === 0) {
-
-                operationValue = current;
-
-            }
-
-            // ADICIONA O VALOR NA TELA ANTERIOR
-            this.previousOperationText.innerHTML = `${operationValue} ${operation}`;
-            this.currentOperationText.innerHTML = '';
-        }
-
-    };
-
-    // MUDAR AS OPERACOES MATEMATICAS
-    changeOpration(operation) {
-
-        const mathOperations = ['+', '-', '*', '/'];
-
-        if (!mathOperations.includes(operation)) {
-
-            return;
-        }
-
-        this.previousOperationText.innerHTML = this.previousOperationText.innerHTML.slice(0, -1) + operation;
-    }
-
-    // ELIMINA O ULTIMO VALOR ATUAL
-    processDelOperation() {
-
-        this.currentOperationText.innerHTML = this.currentOperationText.innerHTML.slice(0, -1);
-        
-
-    }
-
-    // LIMPA TODOS OS VALORES ATUAIS
-    processClearCurrentOperation() {
-
-        this.currentOperationText.innerHTML = '';
-
-    }
-
-    //  LIMPA TODAS OS VALORES ATUAIS ASSIM COMO ANTERIORES
-    processClearAllOperation() {
-
-        this.previousOperationText.innerHTML = '';
-        this.currentOperationText.innerHTML = '';
-
-    }
-
-    processEqualoperation() {
-
-        const operation = previousOperationText.innerHTML.split(' ')[1];
-
-        this.processOperation(operation)
-
-    }
-
-};
-
-// INFORMAÇÕES PARA ADICIONAR NO CONSRTRATOR
-const calc = new calculator(previousOperationText, currentOperationText);
-
-buttons.forEach( (button) => {
-
-    button.addEventListener('click', (event) => {
-
-        const value = event.target.innerHTML;
-        
-        if (+value >= 0 || value === '.') {
-
-            calc.addDigit(value);
-
-        } else {
-
-            calc.processOperation(value)
-
-        };
-
-    });
-
-});
+    })
+})

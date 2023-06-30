@@ -32,22 +32,24 @@ body {
 
 .operations {
     min-height: 100px;
-    
+    text-align: right;
 }
 
-.result {
+.operations .previous-operation, .current-operation {
     color: lightgray;
-    min-height: 78px;
+    min-height: 24px;
     padding: 13px;
-    text-align: right;
+    overflow-wrap: break-word;
+}
+
+.current-operation {
     font-size: 34px;
     font-weight: 700;
-    overflow-wrap: break-word;
 }
 
 .button-box {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: 1fr 1fr 1fr 1fr;
     gap: 2px;
 }
 
@@ -60,8 +62,9 @@ body {
     cursor: pointer;
 }
 
-.button-box button:active {
-    opacity: 0.5;
+.button-box button:hover {
+    border: 2px solid gray;
+    background-color: gray;
 }
 
 .button-box .number {
@@ -71,4 +74,9 @@ body {
 .equal {
     grid-column: span 2;
     background-color: #317fd3 !important;
+}
+
+.equal:hover {
+    border: 2px solid #0b56a7 !important;
+    background-color: #0b56a7 !important;
 }
