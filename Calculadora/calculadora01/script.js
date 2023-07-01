@@ -24,7 +24,7 @@ function updateResult(originClear = false) {
 
 function addDigit(digit) {
 
-    if (digit === '.' && currentNumber.includes('.')) {
+    if (digit === '.' && resultScrean.textContent.includes('.')) {
 
         return;
 
@@ -53,6 +53,7 @@ function setOperator(newOperator) {
 
         calculateAll()
 
+        // currentNumber += newOperator
         firstOperand = +currentNumber;
         currentNumber = "";
 
@@ -104,16 +105,7 @@ function calculateAll() {
             return;
     }
 
- 
-    if (resultValue.toString().split('.')[1]?.length > 5) {
-
-        currentNumber = +resultValue.toFixed(5).toString();
-
-    } else {
-
-        currentNumber = resultValue.toString();
-
-    }
+        currentNumber = resultValue
 
     operator = null;
     firstOperand = null;
@@ -121,6 +113,13 @@ function calculateAll() {
     updateResult()
 }
 
+function clear() {
+
+    currentNumber = ''
+    operator = null;
+    firstOperand = null;
+    updateResult(true)
+}
 
 buttons.forEach((button) => {
 
@@ -135,11 +134,15 @@ buttons.forEach((button) => {
 
         } else if (['+', '-', 'x', '÷'].includes(buttonValue)) {
 
-            setOperator();
+            setOperator(buttonValue);
 
         } else if (buttonValue === '=') {
 
             calculateAll()
+
+        } else if (buttonValue === 'C') {
+
+            clear()
 
         }
     })

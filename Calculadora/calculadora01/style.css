@@ -16,7 +16,7 @@ body {
 }
 
 .calculator {
-    width: 350px;
+    width: 300px;
     display: flex;
     flex-direction: column;
     padding: 5px;
@@ -56,12 +56,15 @@ body {
     height: 54px;
     border: none;
     font-size: 18px;
-    background-color: #00000080;
     cursor: pointer;
 }
 
 .button-box button:active {
     opacity: 0.5;
+}
+
+.button-box .operator {
+    background-color: rgb(43, 42, 42);
 }
 
 .button-box .number {
@@ -70,5 +73,5 @@ body {
 
 .equal {
     grid-column: span 2;
-    background-color: #317fd3 !important;
+    background-color: #317fd3;
 }
