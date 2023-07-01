@@ -121,6 +121,12 @@ function clear() {
     updateResult(true)
 }
 
+function negativeToPositive() {
+
+    currentNumber = (+currentNumber || +firstOperand) * -1
+    updateResult();
+}
+
 buttons.forEach((button) => {
 
     button.addEventListener('click', () => {
@@ -144,6 +150,9 @@ buttons.forEach((button) => {
 
             clear()
 
+        } else if (buttonValue === '±') {
+
+            negativeToPositive()
         }
     })
 })
