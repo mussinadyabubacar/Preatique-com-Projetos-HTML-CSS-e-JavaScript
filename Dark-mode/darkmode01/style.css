@@ -1,0 +1,66 @@
+@charset "UTF-8";
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(202, 201, 201);
+    transition: all 0.2s ease-in-out;
+}
+
+.main {
+    width: 400px;
+    height: 400px;
+    padding: 10px;
+    border-radius: 5px;
+    background-color: rgb(232, 235, 235);
+    box-shadow: 0px 0px 10px lightgray;
+    transition: all 0.2s ease-in-out;
+}
+
+.swipe {
+    width: 50px;
+    height: 30px;
+    padding: 2px;
+    border-radius: 30px;
+    background-color: gray;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    border: none;
+    transition: all 0.2s ease-in-out;
+}
+
+.button {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background-color: white;
+    transition: all 0.2s ease-in-out;
+}
+
+.swipe.toggle {
+    background-color: black;
+}
+
+.swipe.toggle .button {
+    transform: translateX(25px);
+}
+
+.body.dark {
+    background-color: rgba(0, 0, 0, 0.863);
+}
+
+.main.dark {
+    background-color: rgb(37, 38, 39);
+}
+
