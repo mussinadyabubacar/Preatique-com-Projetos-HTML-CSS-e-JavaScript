@@ -56,7 +56,7 @@ body {
     transition: all 0.2s ease-in-out;
 }
 
-.title.dark {
+.dark .title {
     color: white;
     text-align: center;
     text-transform: uppercase;
@@ -75,7 +75,7 @@ body {
     background-color: rgba(0, 0, 0, 0.863);
 }
 
-.main.dark {
+.dark  .main{
     background-color: rgb(37, 38, 39);
 }
 
