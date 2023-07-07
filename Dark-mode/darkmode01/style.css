@@ -48,6 +48,21 @@ body {
     transition: all 0.2s ease-in-out;
 }
 
+.title {
+    color: black;
+    text-align: center;
+    text-transform: uppercase;
+    text-shadow: 3px 3px 10px black;
+    transition: all 0.2s ease-in-out;
+}
+
+.title.dark {
+    color: white;
+    text-align: center;
+    text-transform: uppercase;
+    text-shadow: 3px 3px 10px white;
+}
+
 .swipe.toggle {
     background-color: black;
 }
