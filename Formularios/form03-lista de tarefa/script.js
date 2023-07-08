@@ -5,7 +5,7 @@ let ul = document.getElementById('lista')
 form.addEventListener('submit', function(event) {
     event.preventDefault()
 
-    valor = inputList.value
+    const valor = inputList.value
 
     if (valor == "") {
 
@@ -19,9 +19,9 @@ form.addEventListener('submit', function(event) {
         let span = document.createElement('span')
         span.textContent = 'x'
 
-        ul.appendChild(li)
         li.appendChild(span)
-
+        ul.appendChild(li)
+        
         span.addEventListener('click', function (){
             if (confirm("Deseja apagar o item?")) {
     
