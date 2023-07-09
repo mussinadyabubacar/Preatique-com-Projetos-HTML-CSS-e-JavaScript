@@ -54,6 +54,7 @@ body {
     border-radius: 10px;
     accent-color: white;
     background-color: royalblue;
+    cursor: grab;
 }
 
 .tools button {
@@ -98,7 +99,7 @@ body {
     background-color: black;
     text-align: center;
     font-size: 18px;
-    cursor: pointer;
+    cursor: copy;
     transition: all 0.5s ease-in-out;
 }
 

@@ -3,7 +3,7 @@ const btnGenerator = document.querySelector('.btn-generator')
 const resultBoxPassword = document.querySelector('.result-box-pwd')
 const rangeValue = document.querySelector('.range-value')
 let password = document.querySelector('.pwd')
-let charts = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ123456789!@";
+let charts = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ123456789!@#%$";
 
 
 rangeValue.textContent = inputRange.value;
