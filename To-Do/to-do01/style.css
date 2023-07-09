@@ -16,8 +16,11 @@ body {
 
 .to-do {
     width: 100%;
-    max-width: 60%;
-    margin-top: 40px;
+    max-width: 450px;
+    padding: 16px;
+    background-color: lightsteelblue;
+    overflow-y: scroll;
+    margin: 20px 0px;
 }
 
 .header {
