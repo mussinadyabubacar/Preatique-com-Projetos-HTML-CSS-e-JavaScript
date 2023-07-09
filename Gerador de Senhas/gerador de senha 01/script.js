@@ -34,7 +34,7 @@ password.addEventListener('click', () => {
 
     setTimeout( function () {
 
-        password.textContent = 'Texto Copiado √'
+        password.textContent = 'Senha Copiada √'
 
     }, 100)
 })
