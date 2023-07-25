@@ -25,7 +25,7 @@ button.addEventListener('click', () => {
 
 async function buscaTempo() {
 
-    let url = `https://api.openweathermap.org/data/2.5/weather?q=${encodeURI(input.value)}&units=metric&appid=8f0b394a6bca95af2c89cc9369a76a10`
+    let url = `https://api.openweathermap.org/data/2.5/weather?q=${encodeURI(input.value)}&units=metric&appid=8f0b394a6bca95af2c89cc9369a76a10&lang=pt_br`
 
 
         // https://api.openweathermap.org/data/2.5/weather?q=${encodeURI(input.value)}&units=metric&appid=8f0b394a6bca95af2c89cc9369a76a10`
@@ -62,7 +62,7 @@ function processarDados(dados) {
     localizacao.textContent = `${dados.name}, ${dados.sys.country}`
     graus.textContent = `Temperatura: ${Math.floor(dados.main.temp)} ℃`
     veloVento.textContent = `Velocidade do Vento: ${dados.wind.speed} km/h`
-    estado.textContent = `Humidade: ${dados.main.humidity}`
+    estado.textContent = `Descrição: ${dados.weather[0].description}`
 
     imagem.src = `https://openweathermap.org/img/wn/${dados.weather[0].icon}@2x.png`
     
