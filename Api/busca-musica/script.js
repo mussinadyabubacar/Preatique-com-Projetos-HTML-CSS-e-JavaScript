@@ -3,7 +3,7 @@ const form = document.querySelector('.box-inputs');
 
 function pesquisarLetra(cantor, musica) {
 
-    return fetch(`https://`)
+    return fetch(`https://api.lyrics.ovh/v1/${cantor}/${musica}`);
 
 }
 
@@ -17,7 +17,7 @@ form.addEventListener('submit', (e) => {
 })
 
 
-function fazerBuscaNaLetra() {
+async function fazerBuscaNaLetra() {
 
     const cantor = document.querySelector('#iartist');
     const musica = document.querySelector('#isong');
@@ -25,24 +25,48 @@ function fazerBuscaNaLetra() {
 
     letra.textContent = 'Esperando...'
 
-    pesquisarLetra(cantor.value, musica.value)
-        .then((resposta) => resposta.json())
+    // THEN
+    /*pesquisarLetra(cantor.value, musica.value)
+        .then((response) => response.json())
         .then((date) => {
 
-            if (date.lirycs) {
+            if (date.lyrics) {
 
-                letra.textContent = date.lirycs;
+                letra.textContent = date.lyrics;
 
             } else {
 
-                letra.textContent = date.error;
+                letra.textContent = `Ops! Letra Não encontrada`;
 
             }
 
         })
         .catch((err) => {
 
-            letra.textContent = `Ops! Letras Não encontrada ${err}`;
+            letra.textContent = `Ops! Letra Não encontrada ${err}`;
 
-        })
+        })*/
+
+        // ASYNC/AWAIT
+        try {
+
+            const resposta = await pesquisarLetra(cantor.value, musica.value);
+            const date = resposta.json()
+
+            if (date.lyrics) {
+
+                letra.textContent = date.lyrics;
+
+            } else {
+
+                letra.textContent = date.error
+
+            }
+
+        } catch (err) {
+
+            console.log(err)
+
+        }
+        
 }
