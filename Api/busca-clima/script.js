@@ -38,7 +38,7 @@ async function buscaTempo() {
             .then((resposta) => resposta.json())
             .then((data) => {
 
-                if(data?.cod && data.cod === "404") {
+                if(data.cod && data.cod === "404") {
 
                     return alert('Ops!: Loca não encontrado...')
 
